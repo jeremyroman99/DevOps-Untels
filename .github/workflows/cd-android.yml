@@ -93,6 +93,6 @@ jobs:
       uses: wzieba/Firebase-Distribution-Github-Action@v1
       with:
         appId: 1:185849458770:android:2d5aeac37005221f626f8b
-        serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}s
+        serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
         groups: testers
         file: APK/app-debug.apk
