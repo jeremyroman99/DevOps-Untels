@@ -1,5 +1,15 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
+    id "org.sonarqube" version "4.4.1.3373"
 alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.jetbrainsKotlinAndroid) apply false
+}
+
+
+sonar {
+  properties {
+    property "sonar.projectKey", "jeremyroman99_DevOps-Untels"
+    property "sonar.organization", "jeremyroman99"
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
