@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "185849458770",
+    "project_id": "devops-untels",
+    "storage_bucket": "devops-untels.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:185849458770:android:2d5aeac37005221f626f8b",
+        "android_client_info": {
+          "package_name": "com.untels.devops"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVZ5QlaWAmp0fdTNADwoFYtDGxaqmWCTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
