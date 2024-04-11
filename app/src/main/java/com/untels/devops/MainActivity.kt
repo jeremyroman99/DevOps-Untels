@@ -9,7 +9,7 @@ import androidx.activity.ComponentActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        Thread.sleep(4000)
+        Thread.sleep(3000)
         setTheme(R.style.Theme_DevOpsUntels)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
