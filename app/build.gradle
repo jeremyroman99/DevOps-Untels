@@ -13,8 +13,8 @@ android {
         applicationId "com.untels.devops"
         minSdk 28
         targetSdk 34
-        versionCode 5
-        versionName "5.0"
+        versionCode 14
+        versionName "14.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
