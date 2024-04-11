@@ -48,10 +48,18 @@ jobs:
          needs.build.result == 'success'
    runs-on: ubuntu-latest
    steps:
-     - name: Download from build
+     - name: Download from build APK
        uses: actions/download-artifact@v1
        with:
          name: APK
+     - name: Download from build AAB
+       uses: actions/download-artifact@v1
+       with:
+         name: AAB
+     - run: ls
+     - name: Build project
+       run: |
+        zip --junk-paths artefactos AAB/app-release.aab APK/app-debug.apk
      - name: Obtener la última versión del release
        id: get_latest_release
        run: |
@@ -85,8 +93,8 @@ jobs:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
        with:
          upload_url: ${{ steps.create_release.outputs.upload_url }}
-         asset_path: APK/app-debug.apk
-         asset_name: ${{ github.event.repository.name }}.apk
+         asset_path: ./artefactos.zip
+         asset_name: artefactos.zip
          asset_content_type: application/zip
      - run: echo "Upload returned with status=${{ job.status }}."
 
