@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:textSize="25dp"
+            android:textSize="30sp"
             android:textStyle="bold|italic"
             android:text="Colaboradores" />
     </FrameLayout>
@@ -55,7 +55,7 @@
             android:layout_marginTop="20dp"
             android:text="Jeremy Jordan Román Quispe"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="20sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
             android:layout_marginTop="8dp"
             android:text="DevSecOps Engineer | Cloud Engineer | Systems Engineer"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
@@ -96,6 +96,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonLinkedinRoman"
+                    android:contentDescription="Boton para ir a linkedin"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -115,6 +116,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonYoutubeRoman"
+                    android:contentDescription="Boton para ir a youtube"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -134,6 +136,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonInstagramRoman"
+                    android:contentDescription="Boton para ir a instagram"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -163,7 +166,7 @@
             android:layout_marginTop="20dp"
             android:text="Carlos Daniel Cosme Hernandez"
             android:textColor="@color/white"
-            android:textSize="17dp"
+            android:textSize="20sp"
             android:textStyle="bold|italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
@@ -177,7 +180,7 @@
             android:layout_marginTop="8dp"
             android:text="Ingeniería de Sistemas | DevOps"
             android:textColor="@color/white"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:textStyle="italic"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -208,6 +211,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonLinkedinCosme"
+                    android:contentDescription="Boton para ir a linkedin"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -227,6 +231,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonYoutubeCosme"
+                    android:contentDescription="Boton para ir a youtube"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
@@ -246,6 +251,7 @@
 
                 <ImageButton
                     android:id="@+id/imageButtonInstagramCosme"
+                    android:contentDescription="Boton para ir a instagram"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
                     android:layout_weight="1"
