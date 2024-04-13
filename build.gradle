@@ -11,5 +11,6 @@ sonar {
     property "sonar.projectKey", "jeremyroman99_DevOps-Untels"
     property "sonar.organization", "jeremyroman99"
     property "sonar.host.url", "https://sonarcloud.io"
+    property "sonar.sources", "."
   }
 }
