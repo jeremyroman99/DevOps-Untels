@@ -5,6 +5,17 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import com.untels.devops.navigation.AppNavigation
 
 
 class MainActivity : ComponentActivity() {
@@ -12,8 +23,10 @@ class MainActivity : ComponentActivity() {
         Thread.sleep(3000)
         setTheme(R.style.Theme_DevOpsUntels)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.main_activity)
-
+        //setContentView(R.layout.main_activity)
+        setContent {
+            AppNavigation()
+        }
     }
     fun openLinkedIn1(view: View?) {
         // Aquí define la URL de LinkedIn que quieres abrir
@@ -70,3 +83,5 @@ class MainActivity : ComponentActivity() {
         startActivity(intent)
     }
 }
+
+
