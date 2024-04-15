@@ -35,17 +35,14 @@ jobs:
       #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #  run: ./gradlew build sonar --info
 
-      #- name: Build and lint
-      #  run: |
-      #    ./gradlew build
-      #    ./gradlew lintDebug
-
-      - name: Create text file
-        run: echo "COSME YA SALIOO" > holajeremy.txt
+      - name: Build and lint
+        run: |
+          ./gradlew build
+          ./gradlew lintDebug
 
       - name: Read lint report content
         run: |
-          echo "LINT_REPORT_CONTENT=$(cat holajeremy.txt)" >> $GITHUB_ENV
+          echo "LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.txt)" >> $GITHUB_ENV
 
       - run: echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT"
 
