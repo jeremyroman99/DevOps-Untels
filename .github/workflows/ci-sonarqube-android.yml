@@ -2,6 +2,10 @@ name: ci-sonarqube-android
 on:
   pull_request:
     branches: [develop, release]
+env:
+  FIRST_NAME: Mona
+  LAST_NAME: Octocat
+  LINT_REPORT_CONTENT: $LINT_REPORT_CONTENT
 jobs:
   SonarCloud:
     name: Build and analyze
