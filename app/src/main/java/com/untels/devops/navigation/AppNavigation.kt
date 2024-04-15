@@ -72,11 +72,11 @@ fun AppNavigation(){
             modifier = Modifier
                 .padding(paddingValues)
         ) {
-            composable( route = Screens.HomeScreen.name){
-                HomeScreen()
-            }
             composable( route = Screens.CollaboratorScreen.name){
                CollaboratorScreen()
+            }
+            composable( route = Screens.HomeScreen.name){
+                HomeScreen()
             }
             composable( route = Screens.ResourceScreen.name){
                 ResourceScreen()

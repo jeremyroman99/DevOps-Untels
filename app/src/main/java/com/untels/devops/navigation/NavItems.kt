@@ -5,6 +5,8 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
+import com.untels.devops.R
 
 data class NavItem(
     val label: String,
@@ -19,13 +21,13 @@ val lisOfNavItems = listOf(
         route = Screens.HomeScreen.name
     ),
     NavItem(
-        label = "Colaboradores",
-        icon = Icons.Default.Person,
-        route = Screens.CollaboratorScreen.name
-    ),
-    NavItem(
         label = "Recursos",
         icon = Icons.Default.Search,
         route = Screens.ResourceScreen.name
+    ),
+    NavItem(
+        label = "Colaboradores",
+        icon = Icons.Default.Person,
+        route = Screens.CollaboratorScreen.name
     )
 )

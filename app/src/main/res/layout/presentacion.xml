@@ -2,263 +2,77 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentRelativePresentacion"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <FrameLayout
-        android:id="@+id/frameLayoutTitulo"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="#2196F3"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="11dp">
-
-        <TextView
-            android:id="@+id/textViewTitulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textStyle="bold|italic"
-            android:text="Implementacion DevOps" />
-    </FrameLayout>
+    android:layout_height="wrap_content">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/frameLayoutTitulo">
-
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris"
+            android:background="@color/gris_oscuro"
             android:orientation="vertical"
             tools:context=".MainActivity">
 
-            <ImageView
-                android:id="@+id/imageviewColaboradorRoman"
+            <TextView
+                android:id="@+id/textViewTitulo"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginHorizontal="30dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="25dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/icon_1"
-
+                android:text="@string/TituloPresentacion"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="bold|italic"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewNombreRoman"
-                android:layout_width="wrap_content"
+                android:id="@+id/textViewDescripcionBrevePresentacion"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Jeremy Jordan Román Quispe"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="25dp"
+                android:elegantTextHeight="true"
+                android:text="@string/DescripcionBrevePresentacion"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="17dp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageviewColaboradorRoman" />
-
-            <TextView
-                android:id="@+id/textViewDescripcionRoman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="DevSecOps Engineer | Cloud Engineer | Systems Engineer"
-                android:textColor="@color/white"
-                android:textSize="15dp"
+                android:textSize="22sp"
                 android:textStyle="italic"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.506"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNombreRoman" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/transparente"
-                android:orientation="horizontal"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcionRoman">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonLinkedinRoman"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openLinkedIn1"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/linkedin_icon" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonYoutubeRoman"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openyoutube1"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/youtube_icon" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonInstagramRoman"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openinstagram1"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/instagram_icon" />
-
-                </LinearLayout>
-            </LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitulo" />
 
             <ImageView
-                android:id="@+id/imageviewColaboradorCosme"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="30dp"
-                android:src="@drawable/colaboradorcosme"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-            <TextView
-                android:id="@+id/textViewNombreCosme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Carlos Daniel Cosme Hernandez"
-                android:textColor="@color/white"
-                android:textSize="17dp"
-                android:textStyle="bold|italic"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageviewColaboradorCosme" />
-
-            <TextView
-                android:id="@+id/textViewDescripcionCosme"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Ingeniería de Sistemas | DevOps"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                android:textStyle="italic"
+                android:id="@+id/imageviewPresentacion"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginHorizontal="25dp"
+                android:src="@drawable/icon_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewNombreCosme" />
+                app:layout_constraintTop_toBottomOf="@id/textViewDescripcionBrevePresentacion" />
 
-
-
-            <LinearLayout
-                android:id="@+id/linearLayout4"
+            <TextView
+                android:id="@+id/textViewCopyright"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="30dp"
-                android:orientation="horizontal"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/copyright_text"
+                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescripcionCosme">
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonLinkedinCosme"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openLinkedIn2"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/linkedin_icon" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonYoutubeCosme"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openyoutube2"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/youtube_icon" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/transparente"
-                    android:orientation="vertical">
-
-                    <ImageButton
-                        android:id="@+id/imageButtonInstagramCosme"
-                        android:layout_width="70dp"
-                        android:layout_height="70dp"
-                        android:layout_weight="1"
-                        android:layout_gravity="center"
-                        android:backgroundTint="#00FFFFFF"
-                        android:onClick="openinstagram2"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/instagram_icon" />
-
-                </LinearLayout>
-            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </RelativeLayout>

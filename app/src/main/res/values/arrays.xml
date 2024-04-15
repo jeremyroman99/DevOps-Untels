@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="recursos_array">
+        <item>Guía de implementación de DevOps</item>
+        <item>Enlace a video tutorial</item>
+        <item>Libro recomendado</item>
+    </string-array>
+</resources>

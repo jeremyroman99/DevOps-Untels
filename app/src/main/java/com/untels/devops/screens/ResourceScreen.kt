@@ -1,20 +1,26 @@
 package com.untels.devops.screens
 
-import androidx.compose.foundation.layout.Box
+import android.R
+import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
+
+
 
 @Composable
-fun ResourceScreen(){
-    Box(modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center){
-        Text(text = "Recursos",
-            fontFamily = FontFamily.Serif,
-            fontSize = 22.sp)
-    }
+fun ResourceScreen() {
+    AndroidView(
+        modifier = Modifier.fillMaxSize(),
+        factory = { context ->
+            // Inflar la vista desde el archivo XML
+            val inflater = LayoutInflater.from(context)
+            val view = inflater.inflate(com.untels.devops.R.layout.recursos, null)
+
+            // Retornar la vista inflada
+            view
+        }
+    )
 }
