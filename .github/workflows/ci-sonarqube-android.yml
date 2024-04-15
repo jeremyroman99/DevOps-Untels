@@ -41,36 +41,40 @@ jobs:
           ./gradlew lintDebug
 
       - name: Upload lint report
-        if: always()
         uses: actions/upload-artifact@v2
         with:
           name: lint-report
           path: app/build/reports/lint-results-debug.html
 
-      #- name: Comment on PR with lint report
-      #  if: always()
-      #  uses: actions/github-script@v4
-      #  with:
-      #    script: |
-      #      const fs = require('fs');
-      #      const path = 'app/build/reports/lint-results-debug.html';
-      #      const report = fs.readFileSync(path, 'utf8');
-      #      const github = context.github;
-      #      github.rest.issues.createComment({
-      #        owner: context.repo.owner,
-      #        repo: context.repo.repo,
-      #        issue_number: context.issue.number,
-      #        body: 'Lint report attached.',
-      #      });
-
-      - uses: actions/github-script@v7
+      - name: Comment on PR with lint report
+        uses: actions/github-script@v4
         with:
           script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
+            const fs = require('fs');
+            const path = 'app/build/reports/lint-results-debug.html';
+            const report = fs.readFileSync(path, 'utf8');
+            const github = context.github;
+            const artifactName = 'lint-results-debug.html';
+            const artifactData = Buffer.from(report).toString('base64');
+            
+            github.rest.actions.createArtifact({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+              workflow_id: context.workflow.workflow_id,
+              name: artifactName,
+              data: artifactData,
+              content_type: 'text/html'
+            }).then(() => {
+              github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `Lint report attached: [${artifactName}](${github.rest.actions.getArtifactUrl({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  artifact_id: artifactName
+                })})`,
+              });
+            });
 
 
