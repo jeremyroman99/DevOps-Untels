@@ -42,7 +42,7 @@ jobs:
 
       - name: Read lint report content
         run: |
-          echo "LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.txt)" >> $GITHUB_ENV
+          echo "LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.xml)" >> $GITHUB_ENV
 
       - run: echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT"
 
