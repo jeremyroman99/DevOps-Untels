@@ -40,41 +40,12 @@ jobs:
           ./gradlew build
           ./gradlew lintDebug
 
+      - run: ls app/build/reports
+
       - name: Upload lint report
         uses: actions/upload-artifact@v2
         with:
           name: lint-report
-          path: app/build/reports/lint-results-debug.html
-
-      - name: Comment on PR with lint report
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const fs = require('fs');
-            const path = 'app/build/reports/lint-results-debug.html';
-            const report = fs.readFileSync(path, 'utf8');
-            const githubClient = context.github;
-            const artifactName = 'lint-results-debug.html';
-            const artifactData = Buffer.from(report).toString('base64');
-            
-            githubClient.rest.actions.createArtifact({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: context.workflow.workflow_id,
-              name: artifactName,
-              data: artifactData,
-              content_type: 'text/html'
-            }).then(() => {
-              githubClient.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: `Lint report attached: [${artifactName}](${githubClient.rest.actions.getArtifactUrl({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  artifact_id: artifactName
-                })})`,
-              });
-            });
+          path: app/build/reports
 
 
