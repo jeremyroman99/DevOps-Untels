@@ -47,6 +47,8 @@ jobs:
         run: |
           echo "LINT_REPORT_CONTENT=$(cat holajeremy.txt)" >> $GITHUB_ENV
 
+      - run: echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT"
+
       #- name: Upload lint report
       #  uses: actions/upload-artifact@v2
       #  with:
