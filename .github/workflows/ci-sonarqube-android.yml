@@ -40,12 +40,27 @@ jobs:
           ./gradlew build
           ./gradlew lintDebug
 
-      - run: ls app/build/reports
+      - run: ls app/build/reports/
+
+      - name: Read lint report content
+        run: |
+          export LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.txt)
+          echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT"
 
       - name: Upload lint report
         uses: actions/upload-artifact@v2
         with:
           name: lint-report
           path: app/build/reports
+          
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'LINT_REPORT_CONTENT: ' + process.env.LINT_REPORT_CONTENT
+            })
 
 
