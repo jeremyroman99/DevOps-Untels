@@ -53,11 +53,11 @@ jobs:
             const fs = require('fs');
             const path = 'app/build/reports/lint-results-debug.html';
             const report = fs.readFileSync(path, 'utf8');
-            const github = context.github;
+            const githubClient = context.github;
             const artifactName = 'lint-results-debug.html';
             const artifactData = Buffer.from(report).toString('base64');
             
-            github.rest.actions.createArtifact({
+            githubClient.rest.actions.createArtifact({
               owner: context.repo.owner,
               repo: context.repo.repo,
               workflow_id: context.workflow.workflow_id,
@@ -65,11 +65,11 @@ jobs:
               data: artifactData,
               content_type: 'text/html'
             }).then(() => {
-              github.rest.issues.createComment({
+              githubClient.rest.issues.createComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: context.issue.number,
-                body: `Lint report attached: [${artifactName}](${github.rest.actions.getArtifactUrl({
+                body: `Lint report attached: [${artifactName}](${githubClient.rest.actions.getArtifactUrl({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   artifact_id: artifactName
