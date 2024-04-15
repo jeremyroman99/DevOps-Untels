@@ -45,7 +45,7 @@ jobs:
       - name: Read lint report content
         run: |
           export LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.txt)
-          echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT"
+          echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT" >> $GITHUB_ENV
 
       - name: Upload lint report
         uses: actions/upload-artifact@v2
