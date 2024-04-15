@@ -41,7 +41,7 @@ jobs:
       #    ./gradlew lintDebug
 
       - name: Create text file
-        run: echo "holajeremy1223" > holajeremy.txt
+        run: echo "COSME YA SALIOO" > holajeremy.txt
 
       - name: Read lint report content
         run: |
