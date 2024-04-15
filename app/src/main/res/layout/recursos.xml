@@ -64,26 +64,42 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewNube">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewAws"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openAws"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a AWS"
                     android:src="@drawable/ic_aws" />
 
-                <ImageView
+
+                <ImageButton
                     android:id="@+id/imageViewGcp"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openGcp"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a GCP"
                     android:src="@drawable/ic_googlecloud" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewAzure"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openAzure"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a AZURE"
                     android:src="@drawable/ic_azure" />
@@ -118,26 +134,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewRepositorios">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewGithub"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openGithub"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a GitHub"
                     android:src="@drawable/ic_github" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewBitbucket"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openBitbucket"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Bitbucket"
                     android:src="@drawable/ic_bitbucket" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewGitLab"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openGitlab"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a GitLab"
                     android:src="@drawable/ic_gitlab" />
@@ -172,29 +203,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewServicios">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewJenkins"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openJenkins"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Jenkins"
                     android:src="@drawable/ic_jenkins" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewActions"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openGithubActions"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a GitHub Actions"
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_githubactions" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewCodePipeline"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openCodePipeline"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a AWS CodePipeline"
-                    android:src="@drawable/ic_azure" />
+                    android:src="@drawable/ic_codepipeline" />
             </LinearLayout>
 
             <TextView
@@ -226,21 +272,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewIntegracion">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewDocker"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openDocker"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Docker "
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_docker" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewKubernetes"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openKubernetes"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Kubernetes "
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_kubernetes" />
             </LinearLayout>
 
             <TextView
@@ -272,21 +328,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewAnalisis">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewSonarqube"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openSonarqube"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Sonarqube "
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_sonarqube" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewSonarcloud"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openSonaCloud"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Sonarcloud "
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_sonarcloud" />
             </LinearLayout>
 
             <TextView
@@ -311,28 +377,39 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="25dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginVertical="20dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMonitoreo">
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewGrafana"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openGrafana"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Grafana "
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_grafana" />
 
-                <ImageView
+                <ImageButton
                     android:id="@+id/imageViewNewRelic"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"
+                    android:backgroundTint="#00FFFFFF"
+                    android:onClick="openNewRelic"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a New Relic"
-                    android:src="@drawable/ic_aws" />
+                    android:src="@drawable/ic_newrelic" />
             </LinearLayout>
 
 
@@ -345,7 +422,9 @@
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintVertical_bias="1"
                 app:layout_constraintStart_toStartOf="parent" />
 
 

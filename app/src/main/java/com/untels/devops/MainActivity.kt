@@ -152,60 +152,36 @@ class MainActivity : ComponentActivity() {
     fun BottomNavigationBarPreview() {
         // BottomNavigationBar()
     }
+    fun openUrl(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW)
+        intent.data = Uri.parse(url)
+        startActivity(intent)
+    }
+
     fun openLinkedIn1(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.linkedin.com/in/jeremyroman99/"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.linkedin.com/in/jeremyroman99/")
     }
+
     fun openLinkedIn2(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.linkedin.com/in/carloscosme99/"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.linkedin.com/in/carloscosme99/")
     }
+
     fun openyoutube1(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.youtube.com/watch?v=xvFZjo5PgG0")
     }
+
     fun openyoutube2(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.youtube.com/watch?v=xvFZjo5PgG0"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.youtube.com/watch?v=xvFZjo5PgG0")
     }
+
     fun openinstagram1(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.instagram.com/jeremy.roman99/"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.instagram.com/jeremy.roman99/")
     }
+
     fun openinstagram2(view: View?) {
-        // Aquí define la URL de LinkedIn que quieres abrir
-        val url = "https://www.instagram.com/carlosc.0199/"
-
-        // Crea un intent implícito para abrir el navegador con la URL especificada
-        val intent = Intent(Intent.ACTION_VIEW)
-        intent.setData(Uri.parse(url))
-        startActivity(intent)
+        openUrl("https://www.instagram.com/carlosc.0199/")
     }
+
 }
 
 
