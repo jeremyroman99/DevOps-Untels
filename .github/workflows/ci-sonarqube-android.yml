@@ -39,6 +39,12 @@ jobs:
           ./gradlew build
           ./gradlew lintDebug
       - run: |
+          ls
+          cat exportar_lint.py
+      - run: |
+          python exportar_lint.py
+          cat overview.txt
+      - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "Número de errores: $LINT_ERRORS"
