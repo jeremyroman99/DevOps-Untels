@@ -65,7 +65,7 @@ class MainActivity : ComponentActivity() {
                     Navigation(navController = navController)
                 }
             },
-            backgroundColor = colorResource(R.color.colorPrimaryDark) // Set background color to avoid the white flashing when you switch between screens
+            backgroundColor = colorResource(R.color.gris_oscuro) // Set background color to avoid the white flashing when you switch between screens
         )
     }
 
@@ -117,7 +117,7 @@ class MainActivity : ComponentActivity() {
             NavigationItem.ScreenCo,
         )
         BottomNavigation(
-            backgroundColor = colorResource(id = R.color.colorPrimary),
+            backgroundColor = colorResource(id = R.color.celeste),
             contentColor = Color.White
         ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -150,7 +150,7 @@ class MainActivity : ComponentActivity() {
     @Preview(showBackground = true)
     @Composable
     fun BottomNavigationBarPreview() {
-        // BottomNavigationBar()
+        //BottomNavigationBar()
     }
     fun openUrl(url: String) {
         val intent = Intent(Intent.ACTION_VIEW)
@@ -181,6 +181,66 @@ class MainActivity : ComponentActivity() {
     fun openinstagram2(view: View?) {
         openUrl("https://www.instagram.com/carlosc.0199/")
     }
+    fun openAws(view: View?) {
+        openUrl("https://aws.amazon.com/es/")
+    }
+
+    fun openGcp(view: View?) {
+        openUrl("https://cloud.google.com/?hl=es")
+    }
+
+    fun openAzure(view: View?) {
+        openUrl("https://azure.microsoft.com/es-es/")
+    }
+
+    fun openGithub(view: View?) {
+        openUrl("https://github.com/")
+    }
+
+    fun openBitbucket(view: View?) {
+        openUrl("https://bitbucket.org/product/enterprise")
+    }
+
+    fun openGitlab(view: View?) {
+        openUrl("https://about.gitlab.com/")
+    }
+
+    fun openJenkins(view: View?) {
+        openUrl("https://www.jenkins.io/")
+    }
+
+    fun openGithubActions(view: View?) {
+        openUrl("https://github.com/features/actions")
+    }
+
+    fun openCodePipeline(view: View?) {
+        openUrl("https://aws.amazon.com/es/codepipeline/")
+    }
+
+    fun openDocker(view: View?) {
+        openUrl("https://www.docker.com/")
+    }
+
+    fun openKubernetes(view: View?) {
+        openUrl("https://kubernetes.io/es/")
+    }
+
+    fun openSonarqube(view: View?) {
+        openUrl("https://www.sonarsource.com/products/sonarqube/")
+    }
+
+    fun openSonarCloud(view: View?) {
+        openUrl("https://www.sonarsource.com/products/sonarcloud/")
+    }
+
+    fun openGrafana(view: View?) {
+        openUrl("https://grafana.com/")
+    }
+
+    fun openNewRelic(view: View?) {
+        openUrl("https://newrelic.com/welcome-back")
+    }
+
 
 }
 

@@ -348,7 +348,7 @@
                     android:scaleType="fitCenter"
                     android:layout_gravity="center"
                     android:backgroundTint="#00FFFFFF"
-                    android:onClick="openSonaCloud"
+                    android:onClick="openSonarCloud"
                     android:layout_marginHorizontal="5dp"
                     android:layout_weight="1"
                     android:contentDescription="Boton para ir a Sonarcloud "
