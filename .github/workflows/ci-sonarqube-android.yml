@@ -41,8 +41,8 @@ jobs:
           ./gradlew lintDebug
 
       - run: |
-          errors=$(grep -o '0 errors,' lint-results-debug.txt | cut -d' ' -f1)
-          warnings=$(grep -o '[0-9]\+ warnings' lint-results-debug.txt | cut -d' ' -f1)
+          errors=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)
+          warnings=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)
           export LINT_ERRORS=$errors
           export LINT_WARNINGS=$warnings
           echo "Número de errores: $LINT_ERRORS"
@@ -67,7 +67,7 @@ jobs:
       #        repo: context.repo.repo,
       #        body: `Lint report content: First Name: ${lint_report}`
       #      })
-      
+
       #- name: Create text file
       #  run: echo "COSME YA SALIOO" > holajeremy.txt
       #- name: Set LINT_REPORT_CONTENT environment variable
