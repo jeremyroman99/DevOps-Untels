@@ -29,11 +29,11 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Permisos
         run: chmod +x gradlew
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: ./gradlew build sonar --info
+      #- name: Build and analyze
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #  run: ./gradlew build sonar --info
       - name: Build and lint
         run: |
           ./gradlew build
@@ -42,6 +42,7 @@ jobs:
           ls
           cat exportar_lint.py
       - run: |
+          pip install beautifulsoup4
           python exportar_lint.py
           cat overview.txt
       - run: |
