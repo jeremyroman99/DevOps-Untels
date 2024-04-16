@@ -29,26 +29,20 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Permisos
         run: chmod +x gradlew
-      #- name: Build and analyze
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #  run: ./gradlew build sonar --info
-
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew build sonar --info
       - name: Build and lint
         run: |
           ./gradlew build
           ./gradlew lintDebug
-
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "Número de errores: $LINT_ERRORS"
           echo "Número de advertencias: $LINT_WARNINGS"
-      #- name: Read lint report content
-      #  run: |
-      #    echo "LINT_REPORT_CONTENT=$(cat app/build/reports/lint-results-debug.xml)" >> $GITHUB_ENV
-      #- run: echo "LINT_REPORT_CONTENT=$LINT_REPORT_CONTENT" 
       - name: Upload lint report
         uses: actions/upload-artifact@v2
         with:
