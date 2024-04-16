@@ -41,10 +41,8 @@ jobs:
           ./gradlew lintDebug
 
       - run: |
-          errors=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)
-          warnings=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)
-          export LINT_ERRORS=$errors
-          export LINT_WARNINGS=$warnings
+          echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
+          echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "Número de errores: $LINT_ERRORS"
           echo "Número de advertencias: $LINT_WARNINGS"
       #- name: Read lint report content
@@ -57,16 +55,17 @@ jobs:
           name: lint-report
           path: app/build/reports
       - run: env
-      #- uses: actions/github-script@v7
-      #  with:
-      #    script: |
-      #      const lint_report = process.env.LINT_REPORT_CONTENT;
-      #      github.rest.issues.createComment({
-      #        issue_number: context.issue.number,
-      #        owner: context.repo.owner,
-      #        repo: context.repo.repo,
-      #        body: `Lint report content: First Name: ${lint_report}`
-      #      })
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const lint_errors = process.env.LINT_ERRORS;
+            const lint_warnings = process.env.LINT_WARNINGS;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `Lint report content: Número de errores: ${lint_errors} Número de advertencias: ${lint_warnings} `
+            })
 
       #- name: Create text file
       #  run: echo "COSME YA SALIOO" > holajeremy.txt
