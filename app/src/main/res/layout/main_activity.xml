@@ -5,7 +5,7 @@
     android:id="@+id/parentRelativeHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris_oscuro">
+    android:background="@color/colorFondoVista">
 
 
     <ScrollView
@@ -16,7 +16,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris_oscuro"
+            android:background="@color/colorFondoVista"
             android:orientation="vertical"
             tools:context=".MainActivity">
 
@@ -101,7 +101,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a linkedin Roman"
-                        android:onClick="openLinkedIn1"
+                        android:onClick="openLinkedInRoman"
                         android:scaleType="centerCrop"
                         android:src="@drawable/linkedin_icon" />
                 </LinearLayout>
@@ -120,7 +120,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a youtube Roman"
-                        android:onClick="openyoutube1"
+                        android:onClick="openyoutubeRoman"
                         android:scaleType="centerCrop"
                         android:src="@drawable/youtube_icon" />
                 </LinearLayout>
@@ -139,7 +139,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a instagram Roman"
-                        android:onClick="openinstagram1"
+                        android:onClick="openinstagramRoman"
                         android:scaleType="centerCrop"
                         android:src="@drawable/instagram_icon" />
 
@@ -214,7 +214,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a linkedin Cosme"
-                        android:onClick="openLinkedIn2"
+                        android:onClick="openLinkedInCosme"
                         android:scaleType="centerCrop"
                         android:src="@drawable/linkedin_icon" />
                 </LinearLayout>
@@ -233,7 +233,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a youtube Cosme"
-                        android:onClick="openyoutube2"
+                        android:onClick="openyoutubeCosme"
                         android:scaleType="centerCrop"
                         android:src="@drawable/youtube_icon" />
                 </LinearLayout>
@@ -252,7 +252,7 @@
                         android:layout_gravity="center"
                         android:backgroundTint="#00FFFFFF"
                         android:contentDescription="Boton para ir a instagram Cosme"
-                        android:onClick="openinstagram2"
+                        android:onClick="openinstagramCosme"
                         android:scaleType="centerCrop"
                         android:src="@drawable/instagram_icon" />
 
