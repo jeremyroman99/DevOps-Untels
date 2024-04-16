@@ -14,7 +14,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris_oscuro"
+            android:background="@color/colorFondoVista"
             android:orientation="vertical"
             tools:context=".MainActivity">
 
@@ -53,10 +53,10 @@
             <ImageView
                 android:id="@+id/imageviewPresentacion"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="250dp"
                 android:layout_marginHorizontal="25dp"
                 android:layout_marginBottom="25dp"
-                android:src="@drawable/icon_1"
+                android:src="@drawable/ic_devopsuntels"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
