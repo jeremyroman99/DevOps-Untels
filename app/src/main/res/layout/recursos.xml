@@ -5,7 +5,7 @@
     android:id="@+id/parentRelative"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris_oscuro">
+    android:background="@color/colorFondoVista">
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -16,7 +16,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gris_oscuro"
+            android:background="@color/colorFondoVista"
             android:orientation="vertical"
             tools:context=".MainActivity">
 

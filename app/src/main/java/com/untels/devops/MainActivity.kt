@@ -6,28 +6,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.untels.devops.navigation.AppNavigation
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material.*
-import androidx.compose.material3.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -36,7 +24,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.untels.devops.ui.theme.ScreenA
 import com.untels.devops.ui.theme.ScreenB
 import com.untels.devops.ui.theme.ScreenC
@@ -44,16 +31,13 @@ import com.untels.devops.ui.theme.ScreenC
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        Thread.sleep(3000)
+        Thread.sleep(2000)
         setTheme(R.style.Theme_DevOpsUntels)
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.main_activity)
         setContent {
             MainScreen()
-            //AppNavigation()
         }
     }
-
     @Composable
     fun MainScreen() {
         val navController = rememberNavController()
@@ -65,7 +49,7 @@ class MainActivity : ComponentActivity() {
                     Navigation(navController = navController)
                 }
             },
-            backgroundColor = colorResource(R.color.gris_oscuro) // Set background color to avoid the white flashing when you switch between screens
+            backgroundColor = colorResource(R.color.colorFondoVista) // Set background color to avoid the white flashing when you switch between screens
         )
     }
 
@@ -75,7 +59,6 @@ class MainActivity : ComponentActivity() {
         MainScreen()
     }
 
-    //it NavBackStackEntryに宛先の画面を渡す
     @Composable
     fun Navigation(navController: NavHostController) {
         NavHost(
@@ -99,7 +82,7 @@ class MainActivity : ComponentActivity() {
         TopAppBar(
             title = { Text (text = stringResource(R.string.app_name), fontSize = 18.sp) },
             backgroundColor = colorResource(id = R.color.colorPrimary),
-            contentColor = Color.White
+            contentColor = colorResource(id = R.color.colorIconoSelect)
         )
     }
 
@@ -117,8 +100,8 @@ class MainActivity : ComponentActivity() {
             NavigationItem.ScreenCo,
         )
         BottomNavigation(
-            backgroundColor = colorResource(id = R.color.celeste),
-            contentColor = Color.White
+            backgroundColor = colorResource(id = R.color.colorFondoMenu),
+            contentColor = colorResource(id = R.color.colorIconoSelect)
         ) {
             val navBackStackEntry by navController.currentBackStackEntryAsState()
             val currentRoute = navBackStackEntry?.destination?.route
@@ -126,13 +109,12 @@ class MainActivity : ComponentActivity() {
                 BottomNavigationItem(
                     icon = { Icon(painterResource(id = item.icon), contentDescription = item.title) },
                     label = { Text(text = item.title) },
-                    selectedContentColor = Color.White,
-                    unselectedContentColor = Color.White.copy(0.4f),
+                    selectedContentColor = colorResource(id = R.color.colorIconoSelect),
+                    unselectedContentColor = colorResource(id = R.color.colorIconoUnselect),
                     alwaysShowLabel = true,
                     selected = currentRoute == item.route,
                     onClick = {
                         navController.navigate(item.route) {
-
                             navController.graph.startDestinationRoute?.let { route ->
                                 popUpTo(route) {
                                     saveState = true
@@ -158,27 +140,27 @@ class MainActivity : ComponentActivity() {
         startActivity(intent)
     }
 
-    fun openLinkedIn1(view: View?) {
+    fun openLinkedInRoman(view: View?) {
         openUrl("https://www.linkedin.com/in/jeremyroman99/")
     }
 
-    fun openLinkedIn2(view: View?) {
+    fun openLinkedInCosme(view: View?) {
         openUrl("https://www.linkedin.com/in/carloscosme99/")
     }
 
-    fun openyoutube1(view: View?) {
-        openUrl("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+    fun openyoutubeRoman(view: View?) {
+        openUrl("https://www.youtube.com/@JEREMYJORDANROMANQUISPE")
     }
 
-    fun openyoutube2(view: View?) {
-        openUrl("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+    fun openyoutubeCosme(view: View?) {
+        openUrl("https://www.youtube.com/@CARLOSDANIELCOSMEHERNANDEZ")
     }
 
-    fun openinstagram1(view: View?) {
+    fun openinstagramRoman(view: View?) {
         openUrl("https://www.instagram.com/jeremy.roman99/")
     }
 
-    fun openinstagram2(view: View?) {
+    fun openinstagramCosme(view: View?) {
         openUrl("https://www.instagram.com/carlosc.0199/")
     }
     fun openAws(view: View?) {
