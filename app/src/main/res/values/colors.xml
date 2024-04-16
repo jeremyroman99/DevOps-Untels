@@ -12,4 +12,9 @@
     <color name="celeste">#03A9F4</color>
     <color name="gris">#434651</color>
     <color name="transparente">#00FFFFFF</color>
+    <color name="gris_oscuro">#2E2F35</color>
+    <color name="colorPrimary">#bc214b</color>
+    <color name="colorPrimaryDark">#9e1c40</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorNav">#2155BC</color>
 </resources>
