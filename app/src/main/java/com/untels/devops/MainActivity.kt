@@ -222,8 +222,6 @@ class MainActivity : ComponentActivity() {
     fun openNewRelic(view: View?) {
         openUrl("https://newrelic.com/welcome-back")
     }
-
-
 }
 
 
