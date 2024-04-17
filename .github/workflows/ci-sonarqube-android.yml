@@ -54,3 +54,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python publish_comment.py
+      - name: Upload lint report
+        uses: actions/upload-artifact@v2
+        with:
+          name: lint-report
+          path: app/build/reports
