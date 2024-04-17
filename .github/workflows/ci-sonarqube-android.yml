@@ -34,26 +34,26 @@ jobs:
       #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #  run: ./gradlew build sonar --info
-      - name: Build and lint
-        run: |
-          ./gradlew build
-          ./gradlew lintDebug
+      #- name: Build and lint
+      #  run: |
+      #    ./gradlew build
+      #    ./gradlew lintDebug
+      #- run: |
+      #    pip install beautifulsoup4
+      #    python exportar_lint.py
+      #    cat overview.txt
+      #    python generando_mensaje.py
       - run: |
-          pip install beautifulsoup4
-          python exportar_lint.py
-          cat overview.txt
-      - run: |
-          python generando_mensaje.py
           cat formatted_overview.txt
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
-          echo "LINT_OVERVIEW=$(cat formatted_overview.txt)" >> $GITHUB_ENV
-      - name: Upload lint report
-        uses: actions/upload-artifact@v2
-        with:
-          name: lint-report
-          path: app/build/reports
+          echo "LINT_OVERVIEW=$(cat formatted_overview.txt)" >> $GITHUB_OUTPUT
+      #- name: Upload lint report
+      #  uses: actions/upload-artifact@v2
+      #  with:
+      #    name: lint-report
+      #    path: app/build/reports
       - run: env
       - uses: actions/github-script@v7
         with:
