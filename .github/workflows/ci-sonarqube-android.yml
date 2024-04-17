@@ -48,7 +48,7 @@ jobs:
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
-          echo "LINT_OVERVIEW=$(cat formatted_overview.txt)" >> $GITHUB_OUTPUT
+      #    echo "LINT_OVERVIEW=$(cat formatted_overview.txt)" >> $GITHUB_OUTPUT
       #- name: Upload lint report
       #  uses: actions/upload-artifact@v2
       #  with:
@@ -60,13 +60,11 @@ jobs:
           script: |
             const lint_errors = process.env.LINT_ERRORS;
             const lint_warnings = process.env.LINT_WARNINGS;
-            const lint_overview = process.env.LINT_OVERVIEW;
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: `Lint report content: Número de errores: ${lint_errors} Número de advertencias: ${lint_warnings} 
-                     ${lint_overview}
               `
             })
 
