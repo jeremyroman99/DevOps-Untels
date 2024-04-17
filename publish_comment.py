@@ -26,7 +26,7 @@ lint_errors = os.environ.get('LINT_ERRORS', 'N/A')
 lint_warnings = os.environ.get('LINT_WARNINGS', 'N/A')
 
 # Crear el cuerpo del comentario con el número de errores y advertencias
-comment_body = f"Lint report content:\nNúmero de errores: {lint_errors}\nNúmero de advertencias: {lint_warnings}\n```\n{content}\n```"
+comment_body = f"Reporte de Lint:\nNúmero de errores: {lint_errors}\nNúmero de advertencias: {lint_warnings}\n```\n{content}\n```"
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))

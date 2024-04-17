@@ -29,27 +29,26 @@ jobs:
           restore-keys: ${{ runner.os }}-gradle
       - name: Permisos
         run: chmod +x gradlew
-      #- name: Build and analyze
-      #  env:
-      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-      #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #  run: ./gradlew build sonar --info
-      - name: Build and lint
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew build sonar --info
+      - name: Build y lint
         run: |
           ./gradlew build
           ./gradlew lintDebug
-      - run: |
+      - name: Python para publish_comment.py
+        run: |
           pip install beautifulsoup4
+          pip install PyGithub
           python exportar_lint.py
           cat overview.txt
           python generando_mensaje.py
-      - run: |
           cat formatted_overview.txt
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
-          pip install PyGithub
-      - run: env
       - name: Publish PR comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
