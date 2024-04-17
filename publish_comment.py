@@ -21,10 +21,13 @@ repo = g.get_repo(repository)
 with open('formatted_overview.txt', 'r') as file:
     content = file.read()
 
-# Crear el cuerpo del comentario
-comment_body = f"Datos de revisión formateados:\n```\n{content}\n```"
+# Leer el número de errores y advertencias del lint
+lint_errors = os.environ.get('LINT_ERRORS', 'N/A')
+lint_warnings = os.environ.get('LINT_WARNINGS', 'N/A')
+
+# Crear el cuerpo del comentario con el número de errores y advertencias
+comment_body = f"Lint report content:\nNúmero de errores: {lint_errors}\nNúmero de advertencias: {lint_warnings}\n```\n{content}\n```"
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))
 pr.create_issue_comment(comment_body)
-

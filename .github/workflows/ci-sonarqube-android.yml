@@ -34,15 +34,15 @@ jobs:
       #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       #    SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       #  run: ./gradlew build sonar --info
-      #- name: Build and lint
-      #  run: |
-      #    ./gradlew build
-      #    ./gradlew lintDebug
-      #- run: |
-      #    pip install beautifulsoup4
-      #    python exportar_lint.py
-      #    cat overview.txt
-      #    python generando_mensaje.py
+      - name: Build and lint
+        run: |
+          ./gradlew build
+          ./gradlew lintDebug
+      - run: |
+          pip install beautifulsoup4
+          python exportar_lint.py
+          cat overview.txt
+          python generando_mensaje.py
       - run: |
           cat formatted_overview.txt
       - run: |
@@ -54,23 +54,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          python publish_comment.py   
-      #    echo "LINT_OVERVIEW=$(cat formatted_overview.txt)" >> $GITHUB_OUTPUT
-      #- name: Upload lint report
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name: lint-report
-      #    path: app/build/reports
-      #- run: env
-      #- uses: actions/github-script@v7
-      #  with:
-      #    script: |
-      #      const lint_errors = process.env.LINT_ERRORS;
-      #      const lint_warnings = process.env.LINT_WARNINGS;
-      #      github.rest.issues.createComment({
-      #        issue_number: context.issue.number,
-      #        owner: context.repo.owner,
-      #        repo: context.repo.repo,
-      #        body: `Lint report content: Número de errores: ${lint_errors} Número de advertencias: ${lint_warnings} 
-      #        `
-      #      })
+          python publish_comment.py
