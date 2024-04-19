@@ -1,1 +1,2 @@
-| First Header  | Second sfga |\n| ------------- | ------------- |
+| First Header  | Second sfga |
+| ------------- | ------------- |
