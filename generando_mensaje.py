@@ -21,6 +21,14 @@ for line in lines:
         formatted_line = f"| {section} | \t{warning} | {description} |"
         formatted_lines.append(formatted_line)
 
+# Agregar encabezados
+header_line = "| section | warning | description |"
+divider_line = "| ------------- | ------------- | ------------- |"
+
+formatted_lines.insert(0, header_line)
+formatted_lines.insert(1, divider_line)
+
+# Escribir los datos formateados en formatted_overview.txt
 with open('formatted_overview.txt', 'w') as file:
     for line in formatted_lines:
         file.write(f"{line}\n")
