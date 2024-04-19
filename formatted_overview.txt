@@ -1,0 +1,20 @@
+Correctness	1	warning RedundantLabel: Redundant label on activity
+Correctness	3	warning AndroidGradlePluginVersion: Obsolete Android Gradle Plugin Version
+Correctness	4	warning GradleDependency: Obsolete Gradle Dependency
+Correctness	5	warning SpUsage: Using dp instead of sp for text sizes
+Performance	1	warning ObsoleteSdkInt: Obsolete SDK_INT Version Check
+Performance	4	warning DisableBaselineAlignment: Missing baselineAligned attribute
+Performance	12	warning InefficientWeight: Inefficient layout weight
+Performance	12	warning NestedWeights: Nested layout weights
+Performance	13	warning UnusedResources: Unused resources
+Usability:Icons	2	warning MonochromeLauncherIcon: Monochrome icon is not defined
+Usability:Icons	7	warning IconLocation: Image defined in density-independent drawable folder
+Productivity	2	warning UseTomlInstead: Use TOML Version Catalog Instead
+Accessibility	10	warning ContentDescription: Image without contentDescription
+Internationalization	16	warning HardcodedText: Hardcoded text
+Internationalization	16	warning Included Additional Checks (54)
+Internationalization	16	warning Disabled Checks (41)
+| First Header  | Second Header |
+| ------------- | ------------- |
+| Content Cell  | Content Cell  |
+| Content Cell  | Content Cell  |
