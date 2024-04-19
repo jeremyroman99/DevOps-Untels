@@ -21,11 +21,12 @@ repo = g.get_repo(repository)
 with open('formatted_overview.txt', 'r') as file:
     lines = file.readlines()
 
-# Construir el contenido de la tabla a partir de las líneas del archivo
-table_content = ''.join(lines)
+# Almacenar cada línea en una variable individual
+first_line = lines[0].strip()
+second_line = lines[1].strip()
 
-# Crear el cuerpo del comentario con el contenido de la tabla
-comment_body = f"```\n{table_content}\n```"
+# Construir el cuerpo del comentario con las variables de las líneas
+comment_body = f"{first_line}\n{second_line}"
 
 # Publicar el contenido del archivo como un comentario en el pull request
 pr = repo.get_pull(int(pr_number))
