@@ -27,7 +27,7 @@ lint_errors = os.environ.get('LINT_ERRORS', 'N/A')
 lint_warnings = os.environ.get('LINT_WARNINGS', 'N/A')
 
 
-formatted_table_content = content.replace('|', '| ')
+formatted_table_content = content.replace('|', ' | ').replace(' \n', '\n')
 
 # Crear el cuerpo del comentario con el número de errores y advertencias
 comment_body = f"```\n{formatted_table_content}\n```"
