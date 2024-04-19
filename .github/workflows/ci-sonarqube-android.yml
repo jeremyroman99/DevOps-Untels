@@ -38,10 +38,10 @@ jobs:
       #  run: |
       #    ./gradlew build
       #    ./gradlew lintDebug
-      #- name: Python para publish_comment.py
-      #  run: |
-      #    pip install beautifulsoup4
-      #    pip install PyGithub
+      - name: Python para publish_comment.py
+        run: |
+          pip install beautifulsoup4
+          pip install PyGithub
       #    python exportar_lint.py
       #    cat overview.txt
       #    python generando_mensaje.py
