@@ -21,12 +21,10 @@ repo = g.get_repo(repository)
 with open('formatted_overview.txt', 'r') as file:
     lines = file.readlines()
 
-# Almacenar cada línea en una variable individual
-first_line = lines[0].strip()
-second_line = lines[1].strip()
-
-# Construir el cuerpo del comentario con las variables de las líneas
-comment_body = f"{first_line}\n{second_line}"
+# Construir el cuerpo del comentario con todas las líneas del archivo
+comment_body = ''
+for line in lines:
+    comment_body += line.strip() + '\n'
 
 # Publicar el contenido del archivo como un comentario en el pull request
 pr = repo.get_pull(int(pr_number))
