@@ -26,14 +26,11 @@ with open('formatted_overview.txt', 'r') as file:
 lint_errors = os.environ.get('LINT_ERRORS', 'N/A')
 lint_warnings = os.environ.get('LINT_WARNINGS', 'N/A')
 
-# Convertir la tabla Markdown en una cadena de texto legible
-# Aquí asumo que el contenido de la tabla es válido y tiene tres columnas
-lines = content.strip().split('\n')[1:]  # Ignorar la primera línea (cabecera)
-table_data = [line.split('|')[1:-1] for line in lines]  # Extraer datos de la tabla
-formatted_table = tabulate.tabulate(table_data, headers=['Command', 'Description'], tablefmt='pipe')
+
+formatted_table_content = content.replace('|', '| ')
 
 # Crear el cuerpo del comentario con el número de errores y advertencias
-comment_body = f"```\n{content}\n```"
+comment_body = f"```\n{formatted_table_content}\n```"
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))
