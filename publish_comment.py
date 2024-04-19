@@ -33,7 +33,7 @@ table_data = [line.split('|')[1:-1] for line in lines]  # Extraer datos de la ta
 formatted_table = tabulate.tabulate(table_data, headers=['Command', 'Description'], tablefmt='pipe')
 
 # Crear el cuerpo del comentario con el número de errores y advertencias
-comment_body = f"| First Header  | Second Header |"
+comment_body = f"| First Header  | Second Header |\n| ------------- | ------------- |"
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))
