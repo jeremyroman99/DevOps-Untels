@@ -37,4 +37,4 @@ comment_body = f"| First Header | Second Header |\n| ------------- | -----------
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))
-pr.create_issue_comment(comment_body)
+pr.create_issue_comment(content)
