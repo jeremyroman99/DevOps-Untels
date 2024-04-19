@@ -17,16 +17,14 @@ with open(os.environ['GITHUB_EVENT_PATH'], 'r') as f:
 repository = os.environ['GITHUB_REPOSITORY']
 repo = g.get_repo(repository)
 
-# Leer el contenido del archivo
-with open('formatted_overview.txt', 'r') as file:
-    content = file.read()
-
 # Leer el número de errores y advertencias del lint
 lint_errors = os.environ.get('LINT_ERRORS', 'N/A')
 lint_warnings = os.environ.get('LINT_WARNINGS', 'N/A')
 
+github_run_id = os.environ['GITHUB_RUN_ID']
+
 # Crear el cuerpo del comentario con el número de errores y advertencias
-comment_body = f"Reporte de Lint:\nNúmero de errores: {lint_errors}\nNúmero de advertencias: {lint_warnings}\n https://github.com/jeremyroman99/DevOps-Untels/actions/runs/8748880133 "
+comment_body = f"Reporte de Lint:\nNúmero de errores: {lint_errors}\nNúmero de advertencias: {lint_warnings}\n Para descargar el reporte completo de las pruebas lint ir al apartado de Artifacts : https://github.com/jeremyroman99/DevOps-Untels/actions/runs/{github_run_id}"
 
 # Publicar el comentario en el pull request
 pr = repo.get_pull(int(pr_number))
