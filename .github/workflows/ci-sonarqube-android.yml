@@ -50,16 +50,16 @@ jobs:
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
-      - name: Publish PR comment table
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          python publish_comment_table.py
       - name: Publish PR comment info
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           python publish_comment_info.py
+      - name: Publish PR comment table
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python publish_comment_table.py     
       - name: Upload lint report
         uses: actions/upload-artifact@v4
         with:
