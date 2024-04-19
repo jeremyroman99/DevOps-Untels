@@ -18,7 +18,7 @@ for line in lines:
         continue
     else:
         description = line
-        formatted_line = f"|{section}|\t{warning}| {description}|"
+        formatted_line = f"| {section} | \t{warning} | {description} |"
         formatted_lines.append(formatted_line)
 
 with open('formatted_overview.txt', 'w') as file:
