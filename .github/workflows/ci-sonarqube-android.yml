@@ -34,52 +34,34 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: ./gradlew build sonar --info
-      - name: Build and lint
+      - name: Build y lint
         run: |
           ./gradlew build
           ./gradlew lintDebug
+      - name: Python para publish_comment_table.py
+        run: |
+          pip install beautifulsoup4
+          pip install PyGithub
+          pip install tabulate
+          python exportar_lint.py
+          cat overview.txt
+          python generando_mensaje.py
+          cat formatted_overview.txt
       - run: |
           echo "LINT_ERRORS=$(grep -o '0 errors,' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
           echo "LINT_WARNINGS=$(grep -o '[0-9]\+ warnings' app/build/reports/lint-results-debug.txt | cut -d' ' -f1)" >> $GITHUB_ENV
-          echo "Número de errores: $LINT_ERRORS"
-          echo "Número de advertencias: $LINT_WARNINGS"
+      - name: Publish PR comment info
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python publish_comment_info.py
+      - name: Publish PR comment table
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python publish_comment_table.py     
       - name: Upload lint report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: lint-report
           path: app/build/reports
-      - run: env
-      - uses: actions/github-script@v7
-        with:
-          script: |
-            const lint_errors = process.env.LINT_ERRORS;
-            const lint_warnings = process.env.LINT_WARNINGS;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `Lint report content: Número de errores: ${lint_errors} Número de advertencias: ${lint_warnings} `
-            })
-
-      #- name: Create text file
-      #  run: echo "COSME YA SALIOO" > holajeremy.txt
-      #- name: Set LINT_REPORT_CONTENT environment variable
-      #  run: echo "LINT_REPORT_CONTENT=$(cat holajeremy.txt)" >> $GITHUB_ENV
-      #- name: Create table.txt
-      #  run: echo "| Lint Report | First Name |" > table.txt && echo "|-------------|------------|" >> table.txt && echo "| ${LINT_REPORT_CONTENT} | Jeremy |" >> table.txt
-      #- run: cat table.txt
-      #- name: set table_lint
-      #  run: echo "LINT_TABLE=$(cat table.txt)" >> $GITHUB_ENV
-      #- uses: actions/github-script@v7
-      #  with:
-      #    script: |
-      #      const lint_report = process.env.LINT_REPORT_CONTENT;
-      #      const table = process.env.LINT_TABLE;
-      #      github.rest.issues.createComment({
-      #        issue_number: context.issue.number,
-      #        owner: context.repo.owner,
-      #        repo: context.repo.repo,
-      #        body: table
-      #      })
-
-
