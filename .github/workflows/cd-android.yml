@@ -119,21 +119,21 @@ jobs:
         serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
         groups: testers
         file: APK/app-debug.apk
-    - name: Download from build AAB
-      uses: actions/download-artifact@v1
-      with:
-        name: AAB
-    - run: ls
-    - name: Upload App Bundle
-      uses: actions/upload-artifact@v1
-      with:
-          name: aab-build
-          path: AAB/app-release.aab
-          retention-days: 7
-    - name: Deploy to Play Store
-      uses: r0adkll/upload-google-play@v1
-      with:
-        serviceAccountJsonPlainText: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-        packageName: com.untels.devops
-        releaseFiles: AAB/app-release.aab
-        track: internal
+    #- name: Download from build AAB
+    #  uses: actions/download-artifact@v1
+    #  with:
+    #    name: AAB
+    #- run: ls
+    #- name: Upload App Bundle
+    #  uses: actions/upload-artifact@v1
+    #  with:
+    #      name: aab-build
+    #      path: AAB/app-release.aab
+    #      retention-days: 7
+    #- name: Deploy to Play Store
+    #  uses: r0adkll/upload-google-play@v1
+    #  with:
+    #    serviceAccountJsonPlainText: 
+    #    packageName: com.untels.devops
+    #    releaseFiles: AAB/app-release.aab
+    #    track: internal
